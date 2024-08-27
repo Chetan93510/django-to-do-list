@@ -1,0 +1,28 @@
+{% extends './base.html' %}
+
+
+{% block content %}
+       <div class="container py-5">
+              <div class="row">
+    
+                     <div class="col-md-4">
+                            {% include 'form.html' %}
+                     </div>
+                     <div class="col-md-8 d-flex flex-column gap-3">
+                            
+                            {% for todo in todos %}
+                                   <div class="w-100 border rounded-3 p-2">
+                                          <h3>{{todo.title}}</h3>
+                                          <small>{{todo.created_at}}</small>
+                                          <p class="text-muted">
+                                                 {{todo.description}}
+                                          </p>
+                                          <a href="/delete/{{todo.id}}" class="btn btn-sm btn-danger">Delete</a>
+                                   </div>
+                            {% endfor %}
+                                   
+                     </div>
+              </div>
+       </div>
+{% endblock content %}
+    
